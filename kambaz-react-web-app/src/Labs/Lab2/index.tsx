@@ -11,6 +11,7 @@ import Zindex from "./Zindex";
 import Float from "./Float";
 import GridLayout from "./GridLayout";
 import Flex from "./Flex";
+import ReactIconsSampler from "./ReactIcons";
 
 export default function Lab2() {
   return (
@@ -77,5 +78,6 @@ Here's another paragraph using a different ID and a different look and
       <Float />
       <GridLayout />
       <Flex />
+      <ReactIconsSampler />
     </div>)
 ;}
