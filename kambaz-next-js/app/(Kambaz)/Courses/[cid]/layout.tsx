@@ -3,7 +3,7 @@ import { FaAlignJustify } from "react-icons/fa6";
 import CourseNavigation from "./Navigation";
 export default async function CoursesLayout(
   { children, params }: Readonly<{ children: ReactNode; params: Promise<{ id: string }> }>) {
-  // @ts-ignore
+  // @ts-expect-error
   const { cid } = await params;
   return (
     <div id="wd-courses">

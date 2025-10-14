@@ -71,7 +71,7 @@ export default function Dashboard() {
                 <CardBody>
                   <CardTitle className="wd-dashboard-course-title text-nowrap overflow-hidden">CS4550 Web Development</CardTitle>
                   <CardText className="wd-dashboard-course-description overflow-hidden" style={{height: "100px"}}>
-                    Hey that's us!
+                    Hey that&apos;s us!
                   </CardText>
                   <Button variant="primary">Go</Button>
                 </CardBody>
