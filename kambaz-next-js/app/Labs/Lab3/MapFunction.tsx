@@ -12,7 +12,7 @@ export default function MapFunction() {
       Todos:
       <ol>
         {todos.map((todo) => (
-          <li>{todo}</li>
+          <li key={`todo${todos.findIndex((item) => todo === item)}`}>{todo}</li>
         ))}
       </ol> <hr/>
     </div>
