@@ -1,5 +1,7 @@
 export default function VariablesAndConstants() {
+ // eslint-disable-next-line no-var
  var functionScoped = 2;
+ // eslint-disable-next-line prefer-const
  let blockScoped = 5;
  const constant1 = functionScoped - blockScoped;
  return(
