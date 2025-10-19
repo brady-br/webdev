@@ -1,6 +1,9 @@
+"use client";
+import * as db from "../../../Database";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 import { FormControl, InputGroup, Button, ListGroup, ListGroupItem, Row, Col } from "react-bootstrap";
-import { FaMagnifyingGlass, FaPlus, FaRegPenToSquare } from "react-icons/fa6";
+import { FaMagnifyingGlass, FaPenToSquare, FaPlus, FaRegPenToSquare } from "react-icons/fa6";
 import { BsGripVertical } from "react-icons/bs";
 import { GoTriangleDown } from "react-icons/go";
 import { FaCheckCircle } from "react-icons/fa";
@@ -8,6 +11,8 @@ import { IoEllipsisVertical } from "react-icons/io5";
 import InputGroupText from "react-bootstrap/esm/InputGroupText";
 
 export default function Assignments() {
+  const { cid } = useParams();
+  const assignments = db.assignments.filter((assignment) => assignment.course === cid);
   return (
     <div>
       <Row>
@@ -45,63 +50,39 @@ export default function Assignments() {
             </div>
           </div>
           <ListGroup className="rounded-0" id="wd-assignment-list">
-            <ListGroupItem className="wd-assignment p-3 ps-1 d-flex align-items-center justify-content-between">
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <FaRegPenToSquare className="me-2 fs-3 text-success" />
-                <div>
-                  <Link href="/Courses/1234/Assignments/123" className="wd-assignment-link">
-                    A1 - ENV + HTML
-                  </Link>
-                  <br />
-                  <span className="modules-for-assignment">Multiple Modules</span> | <b>Not available until</b> May 6 at 12:00am |
-                  <br />
-                  <b>Due</b> May 13 at 11:59pm | 100 pts
+            {assignments.map((assignment) => (
+              <ListGroupItem key={assignment._id} className="wd-assignment p-3 ps-1 d-flex align-items-center justify-content-between">
+                <div className="d-flex align-items-center">
+                  <BsGripVertical className="me-2 fs-3" />
+                  <FaPenToSquare className="me-2 fs-3 text-success" />
+                  <div>
+                    <Link href={`/Courses/${cid}/Assignments/${assignment._id}`} className="wd-assignment-link">
+                      {assignment.title}
+                    </Link>
+                    <br />
+                    <span className="modules-for-assignment">Multiple Modules</span> | <b>Not available until </b>
+                    {new Date(assignment.available).toLocaleString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      hour: "numeric",
+                      minute: "2-digit"
+                    })}
+                    <br />
+                    <b>Due </b>
+                    {new Date(assignment.due).toLocaleString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      hour: "numeric",
+                      minute: "2-digit"
+                    })} | {assignment.points} pts
+                  </div>
                 </div>
-              </div>
-              <div className="d-flex align-items-center">
-                <FaCheckCircle style={{ top: "2px" }} className="text-success me-1 fs-5" />
-                <IoEllipsisVertical className="fs-4" />
-              </div>
-            </ListGroupItem>
-            <ListGroupItem className="wd-assignment p-3 ps-1 d-flex align-items-center justify-content-between">
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <FaRegPenToSquare className="me-2 fs-3 text-success" />
-                <div>
-                  <Link href="/Courses/1234/Assignments/234" className="wd-assignment-link">
-                    A2 - CSS + BOOTSTRAP
-                  </Link>
-                  <br />
-                  <span className="modules-for-assignment">Multiple Modules</span> | <b>Not available until</b> May 13 at 12:00am |
-                  <br />
-                  <b>Due</b> May 20 at 11:59pm | 100 pts
+                <div className="d-flex align-items-center">
+                  <FaCheckCircle style={{top: "2px"}} className="text-success me-1 fs-5" />
+                  <IoEllipsisVertical className="fs-4" />
                 </div>
-              </div>
-              <div className="d-flex align-items-center">
-                <FaCheckCircle style={{ top: "2px" }} className="text-success me-1 fs-5" />
-                <IoEllipsisVertical className="fs-4" />
-              </div>
-            </ListGroupItem>
-            <ListGroupItem className="wd-assignment p-3 ps-1 d-flex align-items-center justify-content-between">
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <FaRegPenToSquare className="me-2 fs-3 text-success" />
-                <div>
-                  <Link href="/Courses/1234/Assignments/345" className="wd-assignment-link">
-                    A3 - JAVASCRIPT + REACT
-                  </Link>
-                  <br />
-                  <span className="modules-for-assignment">Multiple Modules</span> | <b>Not available until</b> May 20 at 12:00am |
-                  <br />
-                  <b>Due</b> May 27 at 11:59pm | 100 pts
-                </div>
-              </div>
-              <div className="d-flex align-items-center">
-                <FaCheckCircle style={{ top: "2px" }} className="text-success me-1 fs-5" />
-                <IoEllipsisVertical className="fs-4" />
-              </div>
-            </ListGroupItem>
+              </ListGroupItem>
+            ))}
           </ListGroup>
         </ListGroupItem>
       </ListGroup>

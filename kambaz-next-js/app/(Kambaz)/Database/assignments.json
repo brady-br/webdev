@@ -1,0 +1,20 @@
+[
+  { "_id": "A101", "title": "Propulsion Assignment", "course": "RS101", "available": "2024-05-06T00:00", "until": "2024-05-20T23:59", "due": "2024-05-13T23:59", "points": 100,
+    "description": "Model the propulsion of a rocket in space, analyzing its velocity and acceleration as its supply of fuel changes." },
+  { "_id": "A102", "title": "Combustion Analysis", "course": "RS101", "available": "2024-05-13T00:00", "until": "2024-05-27T23:59", "due": "2024-05-20T23:59", "points": 100,
+    "description": "Building off of assignment 1, analyze how the rate of the combustion changes with the pressure and temperature inside the combustion chamber." },
+  { "_id": "A103", "title": "Nozzle Design Project", "course": "RS101", "available": "2024-05-20T00:00", "until": "2024-06-03T23:59", "due": "2024-05-27T23:59", "points": 100,
+    "description": "Design three models for a nozzle. Analyze each nozzle's propulsion and exhaust velocity as a function of the rate of combustion." },
+  { "_id": "A201", "title": "Aerodynamics Quiz", "course": "RS102", "available": "2024-05-06T00:00", "until": "2024-05-20T23:59", "due": "2024-05-13T23:59", "points": 100,
+    "description": "Take the quiz on the fundamentals of aerodynamics. You have one attempt." },
+  { "_id": "A202", "title": "Flow Analysis", "course": "RS102", "available": "2024-05-13T00:00", "until": "2024-05-27T23:59", "due": "2024-05-20T23:59", "points": 100,
+    "description": "Create a visualization of the velocity of air around a wing traveling at different velocities. Take into account both speed and wing orientation." },
+  { "_id": "A203", "title": "Heating Analysis", "course": "RS102", "available": "2024-05-20T00:00", "until": "2024-06-03T23:59", "due": "2024-05-27T23:59", "points": 100,
+    "description": "Create a visualization of the heating caused by a spacecraft traveling through the atmosphere." },
+  { "_id": "A301", "title": "Structural Design Task", "course": "RS103", "available": "2024-05-06T00:00", "until": "2024-05-20T23:59", "due": "2024-05-13T23:59", "points": 100,
+    "description": "Explain each component of a spaceship and how it is integrated into the design. How can they withstand the forces they endure?" },
+  { "_id": "A302", "title": "Orbital Calculations", "course": "RS103", "available": "2024-05-13T00:00", "until": "2024-05-27T23:59", "due": "2024-05-20T23:59", "points": 100,
+    "description": "You are each given a date for launch. Find the optimal path to reach Mars." },
+  { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "available": "2024-05-20T00:00", "until": "2024-06-03T23:59", "due": "2024-05-27T23:59", "points": 100,
+    "description": "Take the exam on systems engineering. You have one attempt. Godspeed." }
+]

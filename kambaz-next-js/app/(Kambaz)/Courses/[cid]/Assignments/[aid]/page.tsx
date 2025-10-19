@@ -1,17 +1,20 @@
 "use client";
+import * as db from "../../../../Database";
+import { useParams } from "next/navigation";
 import {FormLabel, FormControl, FormSelect, FormCheck, InputGroup, Row, Col, Button, Form, FormGroup} from "react-bootstrap";
 
 export default function AssignmentEditor() {
-  const text = "The assignment is available online\n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following:\n- Your full name and section\n- Links to each of the lab assignments\n- Link to the Kambaz application\n- Links to all relevant source code repositories\n\nThe Kambaz application should include a link to navigate back to the landing page.";
+  const { cid, aid } = useParams();
+  const assignment = db.assignments.find((assignment) => assignment.course === cid && assignment._id === aid)
   return (
     <div id="wd-assignments-editor">
       <Form>
         <FormGroup controlId="assignmentName">
           <FormLabel>Assignment Name</FormLabel>
-          <FormControl defaultValue="A1" className="" />
+          <FormControl defaultValue={assignment?.title} className="" />
         </FormGroup>
         <br />
-        <FormControl as="textarea" rows={11} defaultValue={text}/>
+        <FormControl as="textarea" rows={10} defaultValue={assignment?.description}/>
         <br />
         <FormGroup controlId="assignmentPoints">
           <Row className="align-items-center">
@@ -19,7 +22,7 @@ export default function AssignmentEditor() {
               <FormLabel>Points</FormLabel>
             </Col>
             <Col xs={9}>
-              <FormControl type="number" defaultValue={100} />
+              <FormControl type="number" defaultValue={assignment?.points} />
             </Col>
           </Row>
         </FormGroup>
@@ -90,16 +93,16 @@ export default function AssignmentEditor() {
                 <FormControl defaultValue="Everyone" /> <br />
 
                 <h5>Due</h5>
-                <FormControl type="date" defaultValue="2024-05-13" /> <br />
+                <FormControl type="datetime-local" defaultValue={assignment?.due} /> <br />
 
                 <Row>
                   <Col xs={6}>
                     <h6>Available from</h6>
-                    <FormControl type="date" defaultValue="2024-05-06" />
+                    <FormControl type="datetime-local" defaultValue={assignment?.available} />
                   </Col>
                   <Col xs={6}>
                     <h6>Until</h6>
-                    <FormControl type="date" defaultValue="2024-05-20" />
+                    <FormControl type="datetime-local" defaultValue={assignment?.until} />
                   </Col>
                 </Row>
               </div>
