@@ -2,26 +2,30 @@
 import { Nav, NavItem, NavLink } from "react-bootstrap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import LabsNavLink from "./LabsNavLink";
 export default function TOC() {
   const pathname = usePathname();
   return (
     <Nav variant="pills">
       <NavItem>
-        <NavLink href="/Labs" as={Link} className={`nav-link ${pathname.endsWith("Labs") ? "active" : ""}`}>
-          Labs </NavLink> </NavItem>
+        <LabsNavLink href="/Labs">
+          Labs </LabsNavLink> </NavItem>
       <NavItem>
-        <NavLink href="/Labs/Lab1" as={Link} className={`nav-link ${pathname.endsWith("Lab1") ? "active" : ""}`}>
-          Lab 1 </NavLink> </NavItem>
+        <LabsNavLink href="/Labs/Lab1">
+          Lab 1 </LabsNavLink> </NavItem>
       <NavItem>
-        <NavLink href="/Labs/Lab2" as={Link} className={`nav-link ${pathname.endsWith("Lab2") ? "active" : ""}`}>
-          Lab 2 </NavLink> </NavItem>
+        <LabsNavLink href="/Labs/Lab2">
+          Lab 2 </LabsNavLink> </NavItem>
       <NavItem>
-        <NavLink href="/Labs/Lab3" as={Link} className={`nav-link ${pathname.endsWith("Lab3") ? "active" : ""}`}>
-          Lab 3 </NavLink> </NavItem>
+        <LabsNavLink href="/Labs/Lab3">
+          Lab 3 </LabsNavLink> </NavItem>
       <NavItem>
-        <NavLink href="/" as={Link}>
-          Kambaz </NavLink> </NavItem>
+        <LabsNavLink href="/Labs/Lab4">
+          Lab 4 </LabsNavLink> </NavItem>
       <NavItem>
-        <NavLink href="https://github.com/brady-br/webdev/tree/a3">My GitHub</NavLink></NavItem>
+        <LabsNavLink href="/">
+          Kambaz </LabsNavLink> </NavItem>
+      <NavItem>
+        <LabsNavLink href="https://github.com/brady-br/webdev/tree/a4">My GitHub</LabsNavLink></NavItem>
     </Nav>
  );}
