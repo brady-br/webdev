@@ -1,20 +1,32 @@
 "use client";
-import * as db from "../../../../Database";
+import Link from "next/link";
+import { RootState } from "../../../../store";
+import { addAssignment, updateAssignment } from "../reducer";
 import { useParams } from "next/navigation";
+import { useState } from "react";
 import {FormLabel, FormControl, FormSelect, FormCheck, InputGroup, Row, Col, Button, Form, FormGroup} from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function AssignmentEditor() {
-  const { cid, aid } = useParams();
-  const assignment = db.assignments.find((assignment) => assignment.course === cid && assignment._id === aid)
+  const { cid, aid } : { cid: string, aid: string } = useParams();
+  const { assignments } = useSelector((state: RootState) => state.assignmentsReducer);
+  var thisAssignment = assignments.find((a) => a.course === cid && a._id === aid)
+  const onSave = thisAssignment === undefined ? addAssignment : updateAssignment;
+  if (thisAssignment === undefined) thisAssignment = {_id: aid, title: "", course: cid,
+    available: "", until: "", due: "", points: 100, description: ""};
+  const [assignment, setAssignment] = useState(thisAssignment);
+  const dispatch = useDispatch();
   return (
     <div id="wd-assignments-editor">
       <Form>
         <FormGroup controlId="assignmentName">
           <FormLabel>Assignment Name</FormLabel>
-          <FormControl defaultValue={assignment?.title} className="" />
+          <FormControl defaultValue={assignment?.title}
+                       onChange={(e) => setAssignment({...assignment, title: e.target.value})} />
         </FormGroup>
         <br />
-        <FormControl as="textarea" rows={10} defaultValue={assignment?.description}/>
+        <FormControl as="textarea" rows={10} defaultValue={assignment?.description}
+                     onChange={(e) => setAssignment({...assignment, description: e.target.value})} />
         <br />
         <FormGroup controlId="assignmentPoints">
           <Row className="align-items-center">
@@ -22,7 +34,8 @@ export default function AssignmentEditor() {
               <FormLabel>Points</FormLabel>
             </Col>
             <Col xs={9}>
-              <FormControl type="number" defaultValue={assignment?.points} />
+              <FormControl type="number" defaultValue={assignment?.points}
+                           onChange={(e) => setAssignment({...assignment, points: parseInt(e.target.value)})} />
             </Col>
           </Row>
         </FormGroup>
@@ -93,16 +106,19 @@ export default function AssignmentEditor() {
                 <FormControl defaultValue="Everyone" /> <br />
 
                 <h5>Due</h5>
-                <FormControl type="datetime-local" defaultValue={assignment?.due} /> <br />
+                <FormControl type="datetime-local" defaultValue={assignment?.due}
+                             onChange={(e) => setAssignment({...assignment, due: e.target.value})} /> <br />
 
                 <Row>
                   <Col xs={6}>
                     <h6>Available from</h6>
-                    <FormControl type="datetime-local" defaultValue={assignment?.available} />
+                    <FormControl type="datetime-local" defaultValue={assignment?.available}
+                                 onChange={(e) => setAssignment({...assignment, available: e.target.value})} />
                   </Col>
                   <Col xs={6}>
                     <h6>Until</h6>
-                    <FormControl type="datetime-local" defaultValue={assignment?.until} />
+                    <FormControl type="datetime-local" defaultValue={assignment?.until}
+                                 onChange={(e) => setAssignment({...assignment, until: e.target.value})} />
                   </Col>
                 </Row>
               </div>
@@ -110,5 +126,23 @@ export default function AssignmentEditor() {
           </Row>
         </FormGroup>
       </Form>
+      <br />
+      <hr />
+      <Row className="d-flex">
+        <Col>
+          <Link href={`/Courses/${cid}/Assignments`} className="float-end">
+            <Button variant="danger" size="lg"
+                    onClick={() => {dispatch(onSave(assignment))}} >
+              Save
+            </Button>
+          </Link>
+          <Link href={`/Courses/${cid}/Assignments`} className="float-end me-2">
+            <Button variant="secondary" size="lg">
+              Cancel
+            </Button>
+          </Link>
+        </Col>
+      </Row>
+      <br />
     </div>
 );}
