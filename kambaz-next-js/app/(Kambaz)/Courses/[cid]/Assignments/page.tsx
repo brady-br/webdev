@@ -1,5 +1,4 @@
 "use client";
-import * as db from "../../../Database";
 import { RootState } from "../../../store";
 import { deleteAssignment } from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,7 +6,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { FormControl, InputGroup, Button, ListGroup, ListGroupItem, Row, Col } from "react-bootstrap";
-import { FaMagnifyingGlass, FaPenToSquare, FaPlus, FaRegPenToSquare, FaTrash } from "react-icons/fa6";
+import { FaMagnifyingGlass, FaPenToSquare, FaPlus, FaTrash } from "react-icons/fa6";
 import { BsGripVertical } from "react-icons/bs";
 import { GoTriangleDown } from "react-icons/go";
 import { FaCheckCircle } from "react-icons/fa";

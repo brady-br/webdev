@@ -3,10 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addNewCourse, deleteCourse, updateCourse } from "../Courses/reducer";
 import { enroll, unenroll } from "./reducer";
 import { RootState } from "../store";
-import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import Link from "next/link";
-import * as db from "../Database";
 import { Row, Col, Card, CardImg, CardBody, CardTitle, CardText, Button, FormControl } from "react-bootstrap";
 export default function Dashboard() {
   const { courses } = useSelector((state: RootState) => state.coursesReducer);

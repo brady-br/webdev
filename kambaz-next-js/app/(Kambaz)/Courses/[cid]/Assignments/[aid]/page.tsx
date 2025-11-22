@@ -4,13 +4,13 @@ import { RootState } from "../../../../store";
 import { addAssignment, updateAssignment } from "../reducer";
 import { useParams } from "next/navigation";
 import { useState } from "react";
-import {FormLabel, FormControl, FormSelect, FormCheck, InputGroup, Row, Col, Button, Form, FormGroup} from "react-bootstrap";
+import {FormLabel, FormControl, FormSelect, FormCheck, Row, Col, Button, Form, FormGroup} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function AssignmentEditor() {
   const { cid, aid } : { cid: string, aid: string } = useParams();
   const { assignments } = useSelector((state: RootState) => state.assignmentsReducer);
-  var thisAssignment = assignments.find((a) => a.course === cid && a._id === aid)
+  let thisAssignment = assignments.find((a) => a.course === cid && a._id === aid)
   const onSave = thisAssignment === undefined ? addAssignment : updateAssignment;
   if (thisAssignment === undefined) thisAssignment = {_id: aid, title: "", course: cid,
     available: "", until: "", due: "", points: 100, description: ""};

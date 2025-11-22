@@ -1,9 +1,7 @@
 "use client";
 import { Nav, NavItem } from "react-bootstrap";
-import { usePathname } from "next/navigation";
 import LabsNavLink from "./LabsNavLink";
 export default function LabsHeader() {
-  const pathname = usePathname();
   return (
     <div id="wd-labs">
       <h1>Labs</h1>
