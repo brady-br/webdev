@@ -10,8 +10,10 @@ export default function Profile() {
  const dispatch = useDispatch();
  const { currentUser } = useSelector((state: RootState) => state.accountReducer);
  const updateProfile = async () => {
-   const updatedProfile = await client.updateUser(currentUser);
-   dispatch(setCurrentUser(updatedProfile));
+   if (currentUser !== null) {
+     const updatedProfile = await client.updateUser(currentUser);
+     dispatch(setCurrentUser(updatedProfile));
+   }
  };
  const fetchProfile = () => {
    if (!currentUser) return redirect("/Account/Signin");

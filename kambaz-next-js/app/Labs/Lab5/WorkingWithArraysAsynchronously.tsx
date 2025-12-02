@@ -6,6 +6,7 @@ import * as client from "./client";
 import { FormControl, ListGroup, ListGroupItem } from "react-bootstrap";
 import { FaTrash, FaPencil } from "react-icons/fa6";
 export default function WorkingWithArraysAsynchronously() {
+  // eslint-disable-next-line no-explicit-any
   const [todos, setTodos] = useState<any[]>([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const createNewTodo = async () => {
@@ -16,6 +17,7 @@ export default function WorkingWithArraysAsynchronously() {
     const todos = await client.fetchTodos();
     setTodos(todos);
   };
+  // eslint-disable-next-line no-explicit-any
   const removeTodo = async (todo: any) => {
     const updatedTodos = await client.removeTodo(todo);
     setTodos(updatedTodos);
@@ -24,26 +26,33 @@ export default function WorkingWithArraysAsynchronously() {
     const newTodo = await client.postNewTodo({ title: "New Posted Todo", completed: false, });
     setTodos([...todos, newTodo]);
   };
+  // eslint-disable-next-line no-explicit-any
   const deleteTodo = async (todo: any) => {
     try {
       await client.deleteTodo(todo);
       const newTodos = todos.filter((t) => t.id !== todo.id);
       setTodos(newTodos);
-    } catch (error: any) {
+    }
+    // eslint-disable-next-line no-explicit-any
+    catch (error: any) {
       console.log(error);
       setErrorMessage(error.response.data.message);
     }
   };
+  // eslint-disable-next-line no-explicit-any
   const editTodo = (todo: any) => {
     const updatedTodos = todos.map(
       (t) => t.id === todo.id ? { ...todo, editing: true } : { ...t, editing: false } );
     setTodos(updatedTodos);
   };
+  // eslint-disable-next-line no-explicit-any
   const updateTodo = async (todo: any) => {
     try {
       await client.updateTodo(todo);
       setTodos(todos.map((t) => (t.id === todo.id ? todo : t)));
-    } catch (error: any) {
+    }
+    // eslint-disable-next-line no-explicit-any
+    catch (error: any) {
       setErrorMessage(error.response.data.message);
     }
   };

@@ -9,7 +9,15 @@ export const findAssignmentsForCourse = async (courseId: string) => {
   return response.data;
 }
 
-export const createAssignmentForCourse = async (courseId: string, assignment: any) => {
+export const createAssignmentForCourse = async (courseId: string, assignment:
+  { _id: string;
+    title: string;
+    course: string;
+    available: string;
+    until: string;
+    due: string;
+    points: number;
+    description: string; }) => {
   const response = await axios.post(
     `${COURSES_API}/${courseId}/assignments`,
     assignment
@@ -17,7 +25,15 @@ export const createAssignmentForCourse = async (courseId: string, assignment: an
   return response.data;
 }
 
-export const updateAssignment = async (assignmentId: string, updates: any) => {
+export const updateAssignment = async (assignmentId: string, updates:
+  { _id: string;
+    title: string;
+    course: string;
+    available: string;
+    until: string;
+    due: string;
+    points: number;
+    description: string; }) => {
   const response = await axios.put(
     `${ASSIGNMENTS_API}/${assignmentId}`,
     updates

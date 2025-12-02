@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 const initialState: { modules:
-    {_id: string, editing: boolean, lessons: any[],
+    { _id: string, editing: boolean, lessons: {
+        _id: string,
+        name: string,
+        description: string,
+        module: string, }[],
       name: string, course: string, description: string}[]
   } = { modules: [] };
 const modulesSlice = createSlice({
