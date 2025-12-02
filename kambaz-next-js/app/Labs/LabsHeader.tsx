@@ -22,6 +22,10 @@ export default function LabsHeader() {
           <LabsNavLink href="/Labs/Lab4">
             Lab 4 </LabsNavLink>
         </NavItem>
+        <NavItem>
+          <LabsNavLink href="/Labs/Lab5">
+            Lab 5 </LabsNavLink>
+        </NavItem>
       </Nav>
     </div>
 );}

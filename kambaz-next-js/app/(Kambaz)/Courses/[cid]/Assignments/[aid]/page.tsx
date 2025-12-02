@@ -1,21 +1,37 @@
 "use client";
 import Link from "next/link";
 import { RootState } from "../../../../store";
-import { addAssignment, updateAssignment } from "../reducer";
+import { addAssignment, setAssignments, updateAssignment } from "../reducer";
+import * as client from "../client";
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {FormLabel, FormControl, FormSelect, FormCheck, Row, Col, Button, Form, FormGroup} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function AssignmentEditor() {
   const { cid, aid } : { cid: string, aid: string } = useParams();
+  const dispatch = useDispatch();
   const { assignments } = useSelector((state: RootState) => state.assignmentsReducer);
-  let thisAssignment = assignments.find((a) => a.course === cid && a._id === aid)
-  const onSave = thisAssignment === undefined ? addAssignment : updateAssignment;
+  const fetchAssignments = async () => {
+    const assignments = await client.findAssignmentsForCourse(cid);
+    dispatch(setAssignments(assignments));
+  }
+  useEffect(() => { fetchAssignments(); }, []);
+  let thisAssignment = assignments.find((a) => a.course === cid && a._id === aid);
+  const newAssignment = thisAssignment === undefined
   if (thisAssignment === undefined) thisAssignment = {_id: aid, title: "", course: cid,
     available: "", until: "", due: "", points: 100, description: ""};
   const [assignment, setAssignment] = useState(thisAssignment);
-  const dispatch = useDispatch();
+  const createAssignment = async () => {
+    const newAssignment = await client.createAssignmentForCourse(cid, assignment);
+    dispatch(setAssignments([...assignments, newAssignment]));
+  };
+  const updateThisAssignment = async () => {
+    const updatedAssignment = await client.updateAssignment(assignment._id, assignment);
+    dispatch(setAssignments(assignments.map((a) => a._id === assignment._id ? assignment : a)));
+  }
+  const onSave = newAssignment ? createAssignment : updateThisAssignment;
+  
   return (
     <div id="wd-assignments-editor">
       <Form>
@@ -130,17 +146,15 @@ export default function AssignmentEditor() {
       <hr />
       <Row className="d-flex">
         <Col>
-          <Link href={`/Courses/${cid}/Assignments`} className="float-end">
-            <Button variant="danger" size="lg"
-                    onClick={() => {dispatch(onSave(assignment))}} >
-              Save
-            </Button>
-          </Link>
-          <Link href={`/Courses/${cid}/Assignments`} className="float-end me-2">
-            <Button variant="secondary" size="lg">
-              Cancel
-            </Button>
-          </Link>
+          <Button href={`/Courses/${cid}/Assignments`} className="float-end"
+                  variant="danger" size="lg"
+                  onClick={() => { onSave(); }} >
+            Save
+          </Button>
+          <Button href={`/Courses/${cid}/Assignments`} className="float-end me-2"
+                  variant="secondary" size="lg">
+            Cancel
+          </Button>
         </Col>
       </Row>
       <br />

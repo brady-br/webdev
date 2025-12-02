@@ -1,8 +1,9 @@
 "use client";
 import { RootState } from "../../../store";
-import { deleteAssignment } from "./reducer";
+import { deleteAssignment, setAssignments } from "./reducer";
+import * as client from "./client"
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { FormControl, InputGroup, Button, ListGroup, ListGroupItem, Row, Col } from "react-bootstrap";
@@ -25,6 +26,15 @@ export default function Assignments() {
   const newAssignmentId = uuidv4();
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
+  const fetchAssignments = async () => {
+    const assignments = await client.findAssignmentsForCourse(cid);
+    dispatch(setAssignments(assignments));
+  }
+  const onDeleteAssignment = async (assignmentId: string) => {
+    await client.deleteAssignment(assignmentId);
+    dispatch(deleteAssignment(assignmentId));
+  }
+  useEffect(() => { fetchAssignments(); }, []);
   return (
     <div>
       <Row>
@@ -92,7 +102,7 @@ export default function Assignments() {
                     })} | {assignment.points} pts
                   </div>
                   <DeleteAssignment show={show} handleClose={() => setShow(false)}
-                    onDelete={() => dispatch(deleteAssignment(assignment._id))}></DeleteAssignment>
+                    onDelete={() => {onDeleteAssignment(assignment._id);}}/>
                 </div>
                 <div className="d-flex align-items-center">
                   {isFaculty && (<FaTrash className="text-danger me-2" onClick={() => setShow(true)}/>)}

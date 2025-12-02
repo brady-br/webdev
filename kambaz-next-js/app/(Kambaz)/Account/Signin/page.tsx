@@ -2,17 +2,16 @@
 import Link from "next/link";
 import { redirect } from "next/dist/client/components/navigation";
 import { setCurrentUser } from "../reducer";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { RootState } from "../../store";
 import { FormControl, Button } from "react-bootstrap";
+import * as client from "../client";
 
 export default function Signin() {
  const [credentials, setCredentials] = useState({username: "", password: ""});
  const dispatch = useDispatch();
- const { users } = useSelector((state: RootState) => state.accountReducer);
- const signin = () => {
-   const user = users.find((user) => user.username === credentials.username && user.password === credentials.password);
+ const signin = async () => {
+   const user = await client.signin(credentials);
    if (!user) return;
    dispatch(setCurrentUser(user));
    redirect("/Dashboard");

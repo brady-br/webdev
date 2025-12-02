@@ -3,7 +3,7 @@ import { Nav, NavItem } from "react-bootstrap";
 import LabsNavLink from "./LabsNavLink";
 export default function TOC() {
   return (
-    <Nav variant="pills">
+    <Nav variant="pills" className="flex-column">
       <NavItem>
         <LabsNavLink href="/Labs">
           Labs </LabsNavLink> </NavItem>
@@ -19,6 +19,9 @@ export default function TOC() {
       <NavItem>
         <LabsNavLink href="/Labs/Lab4">
           Lab 4 </LabsNavLink> </NavItem>
+      <NavItem>
+        <LabsNavLink href="/Labs/Lab5">
+          Lab 5 </LabsNavLink> </NavItem>
       <NavItem>
         <LabsNavLink href="/">
           Kambaz </LabsNavLink> </NavItem>

@@ -1,15 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { users } from "../Database";
 const initialState: {
-  users: {
-    _id: string, username: string, password: string,
-    firstName: string, lastName: string, email: string, dob: string, role: string,
-  }[],
   currentUser : {
     _id: string, username: string, password: string,
     firstName: string, lastName: string, email: string, dob: string, role: string,
   } | null} = {
-  users: users,
   currentUser: null,
 };
 const accountSlice = createSlice({
@@ -21,8 +15,6 @@ const accountSlice = createSlice({
     },
     updateUser: (state, {payload: user}) => {
       if (state.currentUser?._id === user._id) state.currentUser = user;
-      state.users = state.users.map((u) =>
-        u._id === user._id ? user : u);
     }
   },
 });
