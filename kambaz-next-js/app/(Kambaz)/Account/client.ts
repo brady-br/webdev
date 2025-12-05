@@ -18,7 +18,7 @@ export const signup = async (user: {username: string, password: string}) => {
 };
 export const updateUser = async (user: {
     _id: string, username: string, password: string,
-    firstName: string, lastName: string, email: string, dob: string, role: string,
+    firstName: string, lastName: string, email: string, role: string,
   }) => {
   const response = await axiosWithCredentials.put(`${USERS_API}/${user._id}`, user);
   return response.data;
@@ -48,7 +48,10 @@ export const deleteUser = async (userId: string) => {
   const response = await axios.delete( `${USERS_API}/${userId}` );
   return response.data;
 };
-export const createUser = async (user: any) => {
+export const createUser = async (user: {
+    username: string, password: string, firstName: string, lastName: string,
+    email: string, role: string, section: string
+  }) => {
   const response = await axios.post(`${USERS_API}`, user);
   return response.data;
 };

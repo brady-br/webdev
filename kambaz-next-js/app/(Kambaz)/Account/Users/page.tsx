@@ -6,7 +6,16 @@ import * as client from "../client";
 import { FormControl } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa6";
 export default function Users() {
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<{
+    _id: string,
+    firstName: string,
+    lastName: string,
+    username: string,
+    password: string,
+    email: string,
+    section: string,
+    role: string,
+  }[]>([]);
   const [role, setRole] = useState("");
   const [name, setName] = useState("");
   const createUser = async () => {
