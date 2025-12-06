@@ -26,10 +26,10 @@ export default function TOC() {
         <LabsNavLink href="/">
           Kambaz </LabsNavLink> </NavItem>
       <NavItem>
-        <LabsNavLink href="https://github.com/brady-br/webdev/tree/a5">
+        <LabsNavLink href="https://github.com/brady-br/webdev/tree/a6">
           My GitHub</LabsNavLink> </NavItem>
       <NavItem>
-        <LabsNavLink href="https://kambaz-node-server-app-brendan-brady.onrender.com/">
+        <LabsNavLink href="https://kambaz-node-server-app-brendan-brady-a6.onrender.com/">
           My Server</LabsNavLink>
       </NavItem>
     </Nav>

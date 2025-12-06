@@ -52,6 +52,7 @@ export default function Dashboard() {
   const onAddNewCourse = async () => {
     const newCourse = await client.createCourse(course);
     dispatch(setCourses([ ...courses, newCourse ]));
+    await fetchEnrollments();
   };
   const onDeleteCourse = async (courseId: string) => {
     const status = await client.deleteCourse(courseId);
@@ -64,14 +65,18 @@ export default function Dashboard() {
         else { return c; }
     })));};
   const onEnroll = async (courseId: string) => {
-    await enrollmentsClient.enrollInCourse(courseId);
-    await fetchEnrollments();
+    if (currentUser) {
+      await client.enrollIntoCourse(currentUser?._id, courseId);
+      await fetchEnrollments();
+    }
   }
   const onUnenroll = async (courseId: string) => {
-    await enrollmentsClient.unenrollFromCourse(courseId);
-    await fetchEnrollments();
-    if (allCourses) await fetchAllCourses();
-    else await fetchCourses();
+    if (currentUser) {
+      await client.unenrollFromCourse(currentUser?._id, courseId)
+      await fetchEnrollments();
+      if (allCourses) await fetchAllCourses();
+      else await fetchCourses();
+    }
   }
   useEffect(() => {
     fetchCourses();
@@ -85,22 +90,24 @@ export default function Dashboard() {
           Enrollments
         </Button>
       </h1> <hr />
-      <h5>New Course
+      {isFaculty && (<div>
+        <h5>New Course
           <button className="btn btn-primary float-end"
                   id="wd-add-new-course-click"
                   onClick={onAddNewCourse} > Add </button>
           <button className="btn btn-warning float-end me-2"
                 onClick={onUpdateCourse} id="wd-update-course-click">
           Update </button>
-      </h5><br />
-      <FormControl value={course.name} className="mb-2"
-        onChange={(e) => setCourse({ ...course, name: e.target.value })} />
-      <FormControl as="textarea" value={course.description} rows={3}
-        onChange={(e) => setCourse({ ...course, description: e.target.value })} />
+        </h5><br />
+        <FormControl value={course.name} className="mb-2"
+          onChange={(e) => setCourse({ ...course, name: e.target.value })} />
+        <FormControl as="textarea" value={course.description} rows={3}
+          onChange={(e) => setCourse({ ...course, description: e.target.value })} />
+        <hr />
+        {allCourses ? (<h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>) :
+                      (<h2>Your Courses ({courses.length})</h2>)}
       <hr />
-      {allCourses ? (<h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>) :
-                    (<h2>Your Courses ({courses.length})</h2>)}
-      <hr />
+      </div>)}
       <div id="wd-dashboard-courses" className="mb-2">
         <Row xs={1} md={5} className="g-4">
           { courses.map((course) => {
@@ -112,7 +119,7 @@ export default function Dashboard() {
                   <Link href={`/Courses/${course._id}/Home`}
                         className="wd-dashboard-course-link text-decoration-none text-dark"
                         onClick={(event) => {if (!enrolled) event.preventDefault();}}>
-                    <CardImg src={course.img} variant="top" width="100%" height={160} />
+                    <CardImg src="/images/reactjs.png" variant="top" width="100%" height={160} />
                     <CardBody className="card-body">
                       <CardTitle className="wd-dashboard-course-title text-nowrap overflow-hidden">
                         {course.name} </CardTitle>

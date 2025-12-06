@@ -1,4 +1,5 @@
 "use client"
+import { RootState } from "./store";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { IoCalendarOutline } from "react-icons/io5";
@@ -6,7 +7,9 @@ import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
 import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 export default function KambazNavigation() {
+  const { currentUser } = useSelector((state: RootState) => state.accountReducer);
   const pathname = usePathname();
   const links = [
     { label: "Dashboard", path: "/Dashboard", icon: AiOutlineDashboard },
@@ -32,7 +35,8 @@ export default function KambazNavigation() {
       {links.map((link) => (
         <ListGroupItem key={link.label} as={Link} href={link.path}
           className={`bg-black text-center border-0
-              ${pathname.includes(link.label) ? "text-danger bg-white" : "text-white bg-black"}`}>
+              ${pathname.includes(link.label) ? "text-danger bg-white" : "text-white bg-black"}`}
+          onClick={(e) => {if (!currentUser) e.preventDefault()}}>
           {link.icon({ className: "fs-1 text-danger"})}
           <br />
           {link.label}

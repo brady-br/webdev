@@ -21,7 +21,6 @@ export default function Assignments() {
   const isFaculty = currentUser !== null && currentUser.role === "FACULTY";
   const { cid } : { cid: string } = useParams();
   const { assignments } = useSelector((state: RootState) => state.assignmentsReducer);
-  const courseAssignments = assignments.filter((assignment) => assignment.course === cid);
   // suppressHydrationWarning
   const newAssignmentId = uuidv4();
   const [show, setShow] = useState(false);
@@ -36,7 +35,7 @@ export default function Assignments() {
   }
   useEffect(() => { fetchAssignments(); }, []);
   return (
-    <div>
+    <div className="me-3">
       <Row>
         <Col>
           <InputGroup className="d-flex mb-3 float-start" size="lg">
@@ -69,12 +68,12 @@ export default function Assignments() {
             </div>
             <div className="d-flex align-items-center">
               <Button variant="outline-secondary" className="pill-button position-relative me-2">40% of Total</Button>
-              <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
-              <IoEllipsisVertical />
+              {isFaculty && (<FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />)}
+              {isFaculty && (<IoEllipsisVertical />)}
             </div>
           </div>
           <ListGroup className="rounded-0" id="wd-assignment-list">
-            {courseAssignments.map((assignment) => (
+            {assignments.map((assignment) => (
               <ListGroupItem key={assignment._id} className="wd-assignment p-3 ps-1 d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
                   <BsGripVertical className="me-2 fs-3" />
@@ -105,9 +104,10 @@ export default function Assignments() {
                     onDelete={() => {onDeleteAssignment(assignment._id);}}/>
                 </div>
                 <div className="d-flex align-items-center">
-                  {isFaculty && (<FaTrash className="text-danger me-2" onClick={() => setShow(true)}/>)}
-                  <FaCheckCircle style={{top: "2px"}} className="text-success me-1 fs-5" />
-                  <IoEllipsisVertical className="fs-4" />
+                  {isFaculty && (<div>
+                    <FaTrash className="text-danger me-2" onClick={() => setShow(true)}/>
+                    <FaCheckCircle style={{top: "2px"}} className="text-success me-1 fs-5" />
+                    <IoEllipsisVertical className="fs-4" /></div>)}
                 </div>
               </ListGroupItem>
             ))}
