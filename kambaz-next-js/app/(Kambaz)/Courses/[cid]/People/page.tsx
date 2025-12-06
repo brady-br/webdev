@@ -5,8 +5,8 @@ import { useParams } from "next/navigation";
 import PeopleTable from "./Table";
 
 export default function People() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { cid }: { cid: string } = useParams();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [people, setPeople] = useState<any[]>([])
   const fetchPeople = async () => {
     const enrolled = await client.findUsersForCourse(cid);
