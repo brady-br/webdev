@@ -43,7 +43,7 @@ export default function Profile() {
          <FormControl id="wd-lastname" className="mb-2"
            defaultValue={currentUser.lastName}
            onChange={(e) => dispatch(updateUser({ ...currentUser, lastName: e.target.value })) } />
-         <FormControl id="wd-dob" className="mb-2" type="date"
+         <FormControl id="wd-dob" className="mb-2" type="datetime-local"
            defaultValue={currentUser.dob}
            onChange={(e) => dispatch(updateUser({ ...currentUser, dob: e.target.value }))} />
          <FormControl id="wd-email" className="mb-2"
