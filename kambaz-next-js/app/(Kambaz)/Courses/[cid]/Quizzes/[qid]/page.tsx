@@ -13,7 +13,6 @@ export default function QuizDetails() {
   const { currentUser } = useSelector((state: RootState) => state.accountReducer);
   const isFaculty = currentUser !== null && currentUser.role === "FACULTY";
   const isStudent = currentUser !== null && currentUser.role === "STUDENT";
-  const { quizzes } = useSelector((state: RootState) => state.quizzesReducer);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [quiz, setQuiz] = useState<any>({});
   const fetchQuiz = async () => {
@@ -198,7 +197,7 @@ export default function QuizDetails() {
         <hr/>
       </div>
       {isStudent && (
-        <Button variant="danger" className="float-end">
+        <Button variant="danger" className="float-end" href={`/Courses/${cid}/Quizzes/${qid}/Preview`}>
           Take Quiz
         </Button>
       )}
