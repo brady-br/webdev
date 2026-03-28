@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///Users/brendanbrady/Documents/GitHub/webdev/kambaz-next-js/app/%28Kambaz%29/styles.css"],"sourcesContent":["body   {\n  margin: 0;\n  padding: 0;\n}\n\nbody * {\n  font-family: Arial,\n  Helvetica, sans-serif;\n}\n\n@media (min-width: 768px) {\n  #wd-kambaz .wd-main-content-offset {\n    padding-left: 140px !important;\n  }\n}\n\n.list-group.wd > .list-group-item.active {\n  color: black;\n  background-color: white;\n  border-left: 3px solid black !important;\n}\n\n.btn-secondary {\n  --bs-btn-color: #000 !important;\n  --bs-btn-bg: #c7cdd1 !important;\n  --bs-btn-border-color: #c7cdd1 !important;\n  --bs-btn-hover-color: #fff !important;\n}\n.bg-secondary {\n  --bs-secondary-rgb: 199, 205, 209;\n}\n.list-group-item {\n  --bs-list-group-border-color: gray;\n}\n.wd-lesson {\n  border-left: 3px solid green !important;\n}\n.wd-assignment {\n  border-left: 3px solid green !important;\n}\n.wd-quiz {\n  border-left: 3px solid green !important;\n}\n.modules-for-assignment {\n  color: red\n}\n.pill-button {\n  border-radius: 50rem !important;\n  color: black;\n}\n"],"names":[],"mappings":"AAAA;;;;;AAKA;;;;AAKA;EACE;;;;;AAKF;;;;;;AAMA;;;;;;;AAMA;;;;AAGA;;;;AAGA;;;;AASA;;;;AAGA"}}]
+}

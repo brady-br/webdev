@@ -1,0 +1,13 @@
+{
+  "/(Kambaz)/Account/Profile/page": "app/(Kambaz)/Account/Profile/page.js",
+  "/(Kambaz)/Account/Signin/page": "app/(Kambaz)/Account/Signin/page.js",
+  "/(Kambaz)/Account/page": "app/(Kambaz)/Account/page.js",
+  "/(Kambaz)/Courses/[cid]/Assignments/page": "app/(Kambaz)/Courses/[cid]/Assignments/page.js",
+  "/(Kambaz)/Courses/[cid]/Home/page": "app/(Kambaz)/Courses/[cid]/Home/page.js",
+  "/(Kambaz)/Courses/[cid]/Quizzes/[qid]/Editor/page": "app/(Kambaz)/Courses/[cid]/Quizzes/[qid]/Editor/page.js",
+  "/(Kambaz)/Courses/[cid]/Quizzes/[qid]/Preview/page": "app/(Kambaz)/Courses/[cid]/Quizzes/[qid]/Preview/page.js",
+  "/(Kambaz)/Courses/[cid]/Quizzes/[qid]/page": "app/(Kambaz)/Courses/[cid]/Quizzes/[qid]/page.js",
+  "/(Kambaz)/Courses/[cid]/Quizzes/page": "app/(Kambaz)/Courses/[cid]/Quizzes/page.js",
+  "/(Kambaz)/Dashboard/page": "app/(Kambaz)/Dashboard/page.js",
+  "/(Kambaz)/page": "app/(Kambaz)/page.js"
+}

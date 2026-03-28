@@ -1,0 +1,39 @@
+{
+  "pages": {
+    "/(Kambaz)/Courses/[cid]/Assignments/page": [
+      "static/chunks/60799_next_dist_fefecc44._.js",
+      "static/chunks/kambaz-next-js_app_favicon_ico_mjs_333e5667._.js",
+      "static/chunks/[root-of-the-server]__9efbfe47._.css",
+      "static/chunks/kambaz-next-js_app_layout_tsx_711abbf4._.js",
+      "static/chunks/60799_next_dist_client_components_builtin_global-error_dba1174f.js",
+      "static/chunks/60799_react-icons_ai_index_mjs_1e7909f6._.js",
+      "static/chunks/60799_react-icons_io5_index_mjs_98c5afa5._.js",
+      "static/chunks/60799_react-icons_lia_index_mjs_e5e96533._.js",
+      "static/chunks/60799_react-icons_fa6_index_mjs_274c94c7._.js",
+      "static/chunks/60799_react-icons_lib_0dea60fc._.js",
+      "static/chunks/60799_axios_lib_054d8300._.js",
+      "static/chunks/60799_3a04f804._.js",
+      "static/chunks/kambaz-next-js_app_(Kambaz)_30298802._.js",
+      "static/chunks/kambaz-next-js_app_(Kambaz)_styles_a71c6002.css",
+      "static/chunks/kambaz-next-js_app_(Kambaz)_layout_tsx_dba1174f._.js",
+      "static/chunks/kambaz-next-js_app_(Kambaz)_not-found_tsx_9eba4a39._.js",
+      "static/chunks/kambaz-next-js_app_(Kambaz)_Courses_0d02ae92._.js",
+      "static/chunks/kambaz-next-js_app_(Kambaz)_Courses_[cid]_layout_tsx_9eba4a39._.js",
+      "static/chunks/60799_react-icons_bs_index_mjs_988bfef5._.js",
+      "static/chunks/60799_react-icons_go_index_mjs_4fd1ed0c._.js",
+      "static/chunks/60799_react-icons_fa_index_mjs_2cac0687._.js",
+      "static/chunks/60799_38b90d7c._.js",
+      "static/chunks/kambaz-next-js_app_(Kambaz)_Courses_[cid]_Assignments_30e4106b._.js",
+      "static/chunks/kambaz-next-js_app_(Kambaz)_Courses_[cid]_Assignments_page_tsx_7e26e1e9._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_f96d058c._.js",
+      "static/chunks/60799_next_dist_compiled_react-dom_2adda419._.js",
+      "static/chunks/60799_next_dist_compiled_next-devtools_index_8cf7910c.js",
+      "static/chunks/60799_next_dist_compiled_8e1c7b64._.js",
+      "static/chunks/60799_next_dist_client_1e1d805a._.js",
+      "static/chunks/60799_next_dist_a22fdbdb._.js",
+      "static/chunks/60799_@swc_helpers_cjs_0c99aff4._.js",
+      "static/chunks/kambaz-next-js_a0ff3932._.js",
+      "static/chunks/turbopack-kambaz-next-js_b019953a._.js"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 27, "column": 0}, "map": {"version":3,"sources":["file:///Users/brendanbrady/Documents/GitHub/webdev/kambaz-next-js/app/%28Kambaz%29/Courses/%5Bcid%5D/Zoom/page.tsx"],"sourcesContent":["export default function Zoom() {\n  return (\n    <div id=\"wd-zoom\">\n      <h1>Zoom</h1>\n    </div>\n  );\n}"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,sQAAC;QAAI,IAAG;kBACN,cAAA,sQAAC;sBAAG;;;;;;;;;;;AAGV","debugId":null}}]
+}
