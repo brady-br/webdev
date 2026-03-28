@@ -1,0 +1,206 @@
+export default [
+  {
+    "_id": "M101",
+    "name": "Introduction to Rocket Propulsion",
+    "description": "Basic principles of rocket propulsion and rocket engines.",
+    "course": "RS101",
+    "lessons": [
+      {
+        "_id": "L101",
+        "name": "History of Rocketry",
+        "description": "A brief history of rocketry and space exploration.",
+        "module": "M101"
+      },
+      {
+        "_id": "L102",
+        "name": "Rocket Propulsion Fundamentals",
+        "description": "Basic principles of rocket propulsion.",
+        "module": "M101"
+      },
+      {
+        "_id": "L103",
+        "name": "Rocket Engine Types",
+        "description": "Overview of different types of rocket engines.",
+        "module": "M101"
+      }
+    ]
+  },
+  {
+    "_id": "M102",
+    "name": "Fuel and Combustion",
+    "description": "Understanding rocket fuel, combustion processes, and efficiency.",
+    "course": "RS101",
+    "lessons": [
+      {
+        "_id": "L201",
+        "name": "Rocket Fuel",
+        "description": "Overview of different types of rocket fuels.",
+        "module": "M102"
+      },
+      {
+        "_id": "L202",
+        "name": "Combustion Processes",
+        "description": "Understanding combustion processes and efficiency.",
+        "module": "M102"
+      },
+      {
+        "_id": "L203",
+        "name": "Combustion Instability",
+        "description": "Understanding combustion instability and mitigation.",
+        "module": "M102"
+      }
+    ]
+  },
+  {
+    "_id": "M103",
+    "name": "Nozzle Design",
+    "description": "Principles of rocket nozzle design and performance optimization.",
+    "course": "RS101",
+    "lessons": [
+      {
+        "_id": "L301",
+        "name": "Nozzle Design",
+        "description": "Overview of different types of rocket nozzles.",
+        "module": "M103"
+      },
+      {
+        "_id": "L302",
+        "name": "Nozzle Performance",
+        "description": "Understanding nozzle performance and efficiency.",
+        "module": "M103"
+      },
+      {
+        "_id": "L303",
+        "name": "Nozzle Optimization",
+        "description": "Optimizing nozzle design for specific applications.",
+        "module": "M103"
+      }
+    ]
+  },
+  {
+    "_id": "M201",
+    "name": "Fundamentals of Aerodynamics",
+    "description": "Basic aerodynamic concepts and fluid dynamics principles.",
+    "course": "RS102"
+  },
+  {
+    "_id": "M202",
+    "name": "Subsonic and Supersonic Flow",
+    "description": "Understanding subsonic and supersonic aerodynamic behaviors.",
+    "course": "RS102"
+  },
+  {
+    "_id": "M203",
+    "name": "Aerodynamic Heating",
+    "description": "Study of aerodynamic heating and thermal protection systems.",
+    "course": "RS102"
+  },
+  {
+    "_id": "M301",
+    "name": "Spacecraft Structural Design",
+    "description": "Fundamentals of designing spacecraft structures and materials selection.",
+    "course": "RS103"
+  },
+  {
+    "_id": "M302",
+    "name": "Orbital Mechanics",
+    "description": "Understanding orbital dynamics and mission planning.",
+    "course": "RS103"
+  },
+  {
+    "_id": "M303",
+    "name": "Spacecraft Systems Engineering",
+    "description": "Overview of spacecraft systems and subsystems engineering.",
+    "course": "RS103"
+  },
+  {
+    "_id": "M401",
+    "name": "Covalent Bonds",
+    "description": "Understanding how atoms in organic compounds are connected.",
+    "course": "RS104"
+  },
+  {
+    "_id": "M402",
+    "name": "Introduction to Chemical Reactions",
+    "description": "Fundamentals of reactions in an organic context.",
+    "course": "RS104"
+  },
+  {
+    "_id": "M403",
+    "name": "Sugars and Carbohydrates",
+    "description": "Analyzing ring structures and simple molecule chains",
+    "course": "RS104"
+  },
+  {
+    "_id": "M501",
+    "name": "Metallic Properties",
+    "description": "Understanding electron sharing and its effects on conductivity, pliability, etc.",
+    "course": "RS105"
+  },
+  {
+    "_id": "M502",
+    "name": "Salts and Solutions",
+    "description": "Understanding metallic bonds and how they break down.",
+    "course": "RS105"
+  },
+  {
+    "_id": "M503",
+    "name": "Crystal Structures",
+    "description": "Understanding the chemical basis for crystalline structures.",
+    "course": "RS105"
+  },
+  {
+    "_id": "M601",
+    "name": "Atomic Nuclei",
+    "description": "Understanding the strong force and how protons behave in atoms.",
+    "course": "RS106"
+  },
+  {
+    "_id": "M602",
+    "name": "Electron Orbitals",
+    "description": "Physics of how electrons define chemical properties and reactions.",
+    "course": "RS106"
+  },
+  {
+    "_id": "M603",
+    "name": "Physics of Chemical Bonds",
+    "description": "Understanding how electrons are gained, lost, and shared.",
+    "course": "RS106"
+  },
+  {
+    "_id": "M701",
+    "name": "English as a Lingua Franca",
+    "description": "Explaining why everyone communicates in English.",
+    "course": "RS107"
+  },
+  {
+    "_id": "M702",
+    "name": "Origins of Middle Earth Languages",
+    "description": "Overview of the history of language in Middle Earth.",
+    "course": "RS107"
+  },
+  {
+    "_id": "M703",
+    "name": "Alphabets and Scripts in Middle Earth",
+    "description": "Overview of the evolution of alphabets and scripts.",
+    "course": "RS107"
+  },
+  {
+    "_id": "M801",
+    "name": "Races of Middle Earth",
+    "description": "History and defining characteristics of elves, dwarves, men, and others.",
+    "course": "RS108"
+  },
+  {
+    "_id": "M802",
+    "name": "The First Age",
+    "description": "Overview of the creation story, early nations, and the first battles.",
+    "course": "RS108"
+  },
+  {
+    "_id": "M803",
+    "name": "The Second Age",
+    "description": "Changes to the map and the rise and fall of Númenor.",
+    "course": "RS108"
+  }
+];
